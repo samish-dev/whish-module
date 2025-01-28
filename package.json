@@ -1,6 +1,6 @@
 {
   "name": "whish-payment",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "TypeScript-based payment service integration with APIs for balance inquiries, payment link generation, and status tracking, supporting USD, LBP, and AED currencies.",
   "main": "index.js",
   "scripts": {
