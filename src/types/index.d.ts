@@ -1,5 +1,5 @@
 // Interfaces
-export interface WishResponse<T> {
+export interface WhishResponse<T> {
     status: boolean;
     code: string | null;
     dialog: null;
@@ -41,3 +41,5 @@ export interface CollectStatusProps {
     currency: Currency;
     externalId: number;
 }
+
+export type ENV_MODE = 'production' | 'development';

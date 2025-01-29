@@ -1,4 +1,4 @@
-export class WishPaymentApiError extends Error {
+export class WhishPaymentApiError extends Error {
     public readonly statusCode: number;
     public readonly code: string | null;
     public readonly details: unknown;
@@ -10,13 +10,13 @@ export class WishPaymentApiError extends Error {
       details: unknown = null
     ) {
       super(message);
-      this.name = "WishPaymentApiError";
+      this.name = "WhishPaymentApiError";
       this.statusCode = statusCode; 
       this.code = code; 
       this.details = details; 
   
       if (Error.captureStackTrace) {
-        Error.captureStackTrace(this, WishPaymentApiError);
+        Error.captureStackTrace(this, WhishPaymentApiError);
       }
     }
   

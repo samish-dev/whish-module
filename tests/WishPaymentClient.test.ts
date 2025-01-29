@@ -1,7 +1,7 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { WishPaymentClient } from "../src/index";
-import { WishPaymentApiError } from "../src/util/APIException";
+import { WhishPaymentClient } from "../src/index";
+import { WhishPaymentApiError } from "../src/util/APIException";
 import {
   BalanceDetails,
   CollectStatusDetails,
@@ -13,15 +13,15 @@ import {
 // Mock Axios
 const mockAxios = new MockAdapter(axios);
 
-describe("WishPaymentClient", () => {
-  const baseUrl = "https://api.payment-service.com";
-  const client = new WishPaymentClient({
-    baseUrl,
+describe("WhishPaymentClient", () => {
+  const client = new WhishPaymentClient({
+    nodeEnv: 'development',
     channel: "test-channel",
     secret: "test-secret",
     websiteUrl: "test-website",
   });
-
+  const baseUrl = client.getUrl();
+  
   afterEach(() => {
     mockAxios.reset();
   });
@@ -44,7 +44,7 @@ describe("WishPaymentClient", () => {
       expect(result).toEqual(mockResponse);
     });
 
-    it("should throw WishPaymentApiError on API failure", async () => {
+    it("should throw WhishPaymentApiError on API failure", async () => {
       const mockError = {
         message: "Unauthorized",
         code: "UNAUTHORIZED",
@@ -53,7 +53,7 @@ describe("WishPaymentClient", () => {
 
       mockAxios.onGet(`${baseUrl}/payment/account/balance`).reply(401, mockError);
 
-      await expect(client.getBalance()).rejects.toThrow(WishPaymentApiError);
+      await expect(client.getBalance()).rejects.toThrow(WhishPaymentApiError);
     });
   });
 
@@ -86,7 +86,7 @@ describe("WishPaymentClient", () => {
       expect(result).toEqual(mockResponse);
     });
 
-    it("should throw WishPaymentApiError on API failure", async () => {
+    it("should throw WhishPaymentApiError on API failure", async () => {
       const mockError = {
         message: "Invalid request",
         code: "INVALID_REQUEST",
@@ -95,7 +95,7 @@ describe("WishPaymentClient", () => {
 
       mockAxios.onPost(`${baseUrl}/payment/whish`).reply(400, mockError);
 
-      await expect(client.getPaymentLink({} as any)).rejects.toThrow(WishPaymentApiError);
+      await expect(client.getPaymentLink({} as any)).rejects.toThrow(WhishPaymentApiError);
     });
   });
 
@@ -123,7 +123,7 @@ describe("WishPaymentClient", () => {
       expect(result).toEqual(mockResponse);
     });
 
-    it("should throw WishPaymentApiError on API failure", async () => {
+    it("should throw WhishPaymentApiError on API failure", async () => {
       const mockError = {
         message: "Payment not found",
         code: "PAYMENT_NOT_FOUND",
@@ -132,7 +132,7 @@ describe("WishPaymentClient", () => {
 
       mockAxios.onPost(`${baseUrl}/payment/collect/status`).reply(404, mockError);
 
-      await expect(client.getPaymentStatus({} as any)).rejects.toThrow(WishPaymentApiError);
+      await expect(client.getPaymentStatus({} as any)).rejects.toThrow(WhishPaymentApiError);
     });
   });
 });

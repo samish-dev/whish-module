@@ -1,15 +1,16 @@
 {
   "name": "whish-payment",
   "version": "1.0.2",
-  "description": "TypeScript-based payment service integration with APIs for balance inquiries, payment link generation, and status tracking, supporting USD, LBP, and AED currencies.",
+  "description": "The Whish Payment Node library provides convenient access to the Whish Money API from applications written in server-side JavaScript.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
+    "clean": "rm -rf dist",
     "prepublish": "npm run build",
     "preversion": "npm test",
     "version": "npm run build && git add --force dist && git add package.json",
-    "postversion": "git push && git push --tags && rm -rf dist",
+    "postversion": "git push && git push --tags && npm run clean",
     "release": "release-it"
   },
   "repository": {
@@ -19,7 +20,8 @@
   "keywords": [
     "whish",
     "api",
-    "utility"
+    "payment processing",
+    "credit cards"
   ],
   "author": "Sami Shames El Deen",
   "contributers": [
