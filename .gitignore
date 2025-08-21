@@ -128,3 +128,31 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# API documentation
+docs/api/
+
+# Package build artifacts
+*.tar.gz
+*.zip
+
+# Test artifacts
+test-results/
+.nyc_output/
+junit.xml

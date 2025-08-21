@@ -278,16 +278,5 @@ export interface WhishClientConfig {
 /**
  * Re-export commonly used types for convenience
  */
-export {
-  /**
-   * Custom error class for Whish Payment API errors
-   * @see {@link WhishPaymentApiError}
-   */
-  WhishPaymentApiError,
-} from '../util/APIException';
-
-/**
- * Validation error for input validation failures
- * @see {@link ValidationError}
- */
+export { WhishPaymentApiError } from '../util/APIException';
 export { ValidationError } from '../util/validation';
