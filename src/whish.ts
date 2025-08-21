@@ -48,8 +48,8 @@ const baseUrl = process.env.PAYMENT_SERVICE_URL;
 
 const secrets = {
     channel: parseInt(process.env.WHISH_CHANNEL || '0'),
-    secret: 'process.env.WHISH_SECRET || ''',
-    websiteurl: 'process.env.WHISH_WEBSITE_URL || ''',
+    secret: process.env.WHISH_SECRET || '',
+    websiteurl: process.env.WHISH_WEBSITE_URL || '',
 };
 
 const headers = {
